@@ -1,0 +1,250 @@
+@charset "utf-8";
+/* CSS Document */
+
+#elenco_gallery{
+	width:				200px;
+	padding:			10px 10px 10px 10px;
+	margin:				5px 0 0 15px;
+	position:			absolute;
+	z-index:			999;
+	background:			#FFF;
+
+	border-radius: 			5px; 
+	-moz-border-radius: 	5px; 
+	-webkit-border-radius: 	5px; 
+}
+	#elenco_gallery ul{
+		margin-left:	10px;
+		font-family:	'TrajanProRegular',Tahoma, Geneva, sans-serif;
+		font-size:		12px;
+	}
+	#elenco_gallery li{
+		display:		block;
+		color:			#666;
+	}
+	#elenco_gallery lu{
+		display:		block;
+		margin-left:	10px;
+		color:			#999;
+	}
+	#elenco_gallery lu:hover{
+		color:			#f00;
+	}
+
+#info_gallery{
+	width:				300px;
+	padding:			10px 10px 10px 10px;
+	margin:				5px 0 0 615px !important;
+	position:			absolute;
+	z-index:			999;
+	background:			#FFF;
+	
+	margin-left:	10px;
+	font-family:	'TrajanProRegular',Tahoma, Geneva, sans-serif;
+	font-size:		12px;
+
+
+	border-radius: 			5px; 
+	-moz-border-radius: 	5px; 
+	-webkit-border-radius: 	5px; 
+}
+
+#accesso_gallery{
+	width:				200px;
+	padding:			10px 10px 10px 10px;
+	margin:				5px 0 0 730px !important;
+	position:			absolute;
+	z-index:			999;
+	background:			#FFF;
+	
+	margin-left:	10px;
+	font-family:	'TrajanProRegular',Tahoma, Geneva, sans-serif;
+	font-size:		12px;
+
+
+	border-radius: 			5px; 
+	-moz-border-radius: 	5px; 
+	-webkit-border-radius: 	5px; 	
+}
+#carca_tag{
+	width:				251px;
+	padding:			4px 2px 4px 130px;
+	margin:				-26px 0 0 125px;
+	position:			absolute;
+	z-index:			999;
+	background:			url(cercatag_off.png) no-repeat;
+
+	border-radius: 			5px; 
+	-moz-border-radius: 	5px; 
+	-webkit-border-radius: 	5px; 
+}
+#carca_tag:hover{
+	background:			url(cercatag_on.png) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+.category, .album{
+	width:				315px;
+	height:				271px;
+	margin:				0 0 0 -4px;
+	background:			url(bkg_category.png) no-repeat top;
+	
+	display:			inline-block;
+}
+.copertina{
+	width:				295px;
+	height:				139px;
+	margin:				10px 0 0 10px;
+	position:			absolute;
+}
+
+.thumb_category, .thumb_album{
+	margin:				-4px 0 0 -5px;
+}
+
+.thumb_protect{
+	width:				295px;
+	height:				141px;
+	position:			absolute;
+	margin-top:			-145px;
+	background:			url(thumbprotect_off.png) no-repeat;
+	opacity:			0;
+}
+
+.line{
+	position:			absolute;
+	margin:				152px 0 0 9px;
+}
+
+.title_categorie, .title_album{
+	width:				285px;
+	height:				91px;
+	position:			absolute;
+	margin:				168px 0 0 9px;
+	padding:			2px 0 2px 10px;
+
+
+	font-family:		'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:			18px;
+	color:				#FFF;
+}
+
+
+
+.wrap_photo{
+	width:				189px;
+	height:				219px;
+	margin:				0 0 0 -4px;
+	background:			url(bkg_photo.png) no-repeat top;
+	
+	display:			inline-block;
+}
+.copertina_photo{
+	width:				174px;
+	height:				153px;
+	margin:				12px 0 0 12px;
+	position:			absolute;
+}
+.thumb_photo{
+	margin:				-4px 0 0 -5px;
+}
+.thumb_protect_photo{
+	width:				174px;
+	height:				153px;
+	position:			absolute;
+	margin:				-146px 0 0 -4px;
+	background:			url(thumb_photo_protect_off.png) no-repeat;
+	opacity:			0;
+}
+.line_photo{
+	position:			absolute;
+	margin:				155px 0 0 9px;
+}
+.title_photo{
+	position:			absolute;
+	margin:				168px 0 0 9px;
+	padding:			2px 0 2px 10px;
+
+
+	font-family:		'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:			15px;
+	color:				#FFF;
+}
+.tag_photo{
+	position:			absolute;
+	margin:				187px 0 0 9px;
+	padding:			2px 0 2px 10px;
+
+
+	font-family:		'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:			15px;
+	color:				#900;
+}
+.tagname:hover{
+	color:				#C90;
+}
+
+/*ADMIN*/
+.optionbox_category, .optionbox_album{
+	opacity:0;
+	width:				295px;
+	height:				141px;
+	position:			absolute;
+	margin:				15px 0 0 15px;
+}
+
+.pannello_nuovacategoria, .pannello_nuovoalbum{
+	position:absolute;
+	margin: 0 270px;
+	z-index:99999999999999999999;
+}
+.pannello_elimina{
+	position:absolute;
+	margin: 0 270px;
+	z-index:9999999999999999999;
+}
+
+
+#mod_categoria, #mod_album{
+	width:				100%;
+	height:				197px;
+}
+.mod_copertina{
+	width:				321px;
+	height:				197px;
+	background:			url(bkg_modcopertina.png) top no-repeat;
+	margin-left:		10px;
+	display:			inline-block;
+}
+.option{
+	width:				634px;
+	height:				197px;
+	background:			url(bkg_option.png) top no-repeat;
+	margin-left:		-8px;
+	display:			inline-block;
+}
+.change{
+	width:				295px;
+	height:				141px;
+	position:			absolute;
+	margin:				10px 0 0 12px;
+	background:			url(change.png) no-repeat;
+	opacity:			0;
+}
+
+
+.opzionifotoalbum{
+	width:				948px;
+	height:				138px;
+	background:			url(bkg_opzionifotoalbum.png) no-repeat;
+	margin-left:		10px;
+}
