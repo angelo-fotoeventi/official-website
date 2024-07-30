@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+
+/*
+	CSS Document
+
+	Created by Alberto Marà
+	Agency Pixo Systems
+	All right reserved ©
+	
+	Attenzione, il presente file è
+	parte integrante della formatta-
+	zione grafica del sito. I dirit-
+	ti del file, del sito, delle
+	foto ed e degli elementi ad esso
+	connessi sono di esclusiva pro-
+	prietà del designer. Non copiare
+	e/o modificare in alcun modo, par-
+	ti, valori, immagini connesse o
+	altro senza specifica autorizza-
+	zione da parte del proprietario.
+	
+	Il materiale presente, il sito
+	in generale, e le parti ad esso
+	connesse sono registrate con
+	marca da bollo opponibile per
+	legge contro terzi.
+	
+	www.pixoagency.com
+	www.amara.com
+
+*/
+
+/*crossing*/
+* {margin: 0;padding: 0;}
+
+
+/*LAYOUT*/
+body{
+	margin:								0 0 0 0;
+	background:							url(../img/bkg_page.jpg) no-repeat top center #000;
+	text-align:							center; /*Anti ie slit*/
+	cursor: 							url(../Cursor_normal.png) , pointer;
+}
+
+
+#header{
+}
+	#wrap_menutop{
+		width:							990px;
+		margin:							0px auto -55px auto;
+		position:						relative;
+		z-index:						100;
+		text-align:						right;
+	}
+	#menutop{
+		display:						inline-block;
+		background:						url(../img/ul_menu_bkg.png) repeat-x;
+		height:							45px;
+		padding:						10px 2px 0 2px;
+		right:							0;	
+	}
+	#menutop a{
+		font-family:					'TrajanProRegular',Tahoma, Geneva, sans-serif;
+		font-size:						12px;
+		font-weight:					bold;
+		color:							#FFF;
+	}
+	#menutop a:hover{
+		background:						#900;
+		padding:						10px;
+		margin:							-10px;
+		border-radius: 5px; 
+		-moz-border-radius: 5px; 
+		-webkit-border-radius: 5px; 
+	}
+
+	#slider{
+		padding-top:					8px;
+		background:						url(../img/wrap_rep.png) top repeat-y;
+	}
+	
+	#carousel_base{
+		width:							938px;
+		height:							369px;
+		background:						url(../img/bkg_slider.png) top no-repeat;
+		margin:							0 auto 0 auto;
+	}
+
+#content{
+	width:							970px;
+	background:						url(../img/wrap_rep.png) top repeat-y;
+	margin:							-10px auto 0 auto;
+	text-align:						left;
+}
+	/*homepage*/
+	.box_home{
+		width:						338px;
+		height:						320px;
+		display:					inline-block;
+		background:					url(../img/box_home.png) no-repeat;
+	}
+	.miniatura_home{
+		margin:						20px 18px;
+	}
+	.box_ww{
+		margin:						10px 30px;
+		font-family:				'TrajanProRegular',Tahoma, Geneva, sans-serif;
+		font-style:					italic;
+		font-size:					12px;
+		color:						#FFF;
+		letter-spacing:				2px;
+	}
+	/*Chi sono*/
+	#chisonobox{
+		width:						550px;
+		height:						510px;
+		margin:						-14px 0 0 -5px;
+		padding:					30px 30px 30px 30px;
+		background:					url(../img/chisonobox.png) top no-repeat;
+		
+		font-family:				'TrajanProRegular',Tahoma, Geneva, sans-serif;
+		font-size:					12px;
+		color:						#FFF;
+		letter-spacing:				2px;		
+	}
+	/*Contatto*/
+	.textbox{
+		width:						562px;
+		height:						26px;
+		margin:						7px 0 7px -10px;
+		padding-left:				10px;
+		border:						0;
+		background:					url(../img/textbox.png) top no-repeat;
+	}
+	.textareabox{
+		width:						562px;
+		height:						255px;
+		margin:						8px 0 28px -10px;
+		padding-left:				10px;
+		border:						0;
+		background:					url(../img/textareabox.png) top no-repeat;
+		text-align:					left;
+	}
+	.resetbutton{
+		width:						90px;
+		height:						25px;
+		position:					absolute;
+		margin-left:				-28px;
+		border:						0;
+		background:					url(../img/input_resetta_off.png) top no-repeat;
+	}
+	.resetbutton:hover{
+		background:					url(../img/input_resetta_on.png) top no-repeat;
+	}
+	.submitbutton{
+		width:						152px;
+		height:						21px;
+		position:					absolute;
+		margin:						0 0 0 426px;
+		border:						0;
+		background:					url(../img/input_invia_off.png) top no-repeat;
+	}
+	.submitbutton:hover{
+		background:					url(../img/input_invia_on.png) top no-repeat;
+	}
+
+#scrollerp{
+	width:						1000px;
+	text-align:					left;
+	margin:						0 auto 0 auto;
+	font-family:				'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:					12px;
+	color:						#FFF;
+}
+/*TYPOGRAPHY*/
+h1{
+	font-family:				'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:					28px;
+	font-weight:				bold;
+	color:						#FFF;
+}
+h2{
+	margin-top:					-2px;
+	font-family:				'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:					22px;
+	font-weight:				bold;
+	color:						#FFF;
+}
+h3{
+}
+
+a{
+	text-decoration:					none;
+	border:								0 none;
+	cursor: 							url(../Cursor_on.png) , pointer;
+}	a:hover{
+	border:								0 none;
+}	a:visited{
+	border:								0 none;
+}	a img{
+	border:								0 none;
+}
+
+#numberfotoinpage{
+		display:						inline-block;
+		background:						url(../../../gallery/theme/number_rep.png) repeat-x;
+		height:							45px;
+		padding:						23px 2px 0 2px;
+}
+
+#numberfotoinpage a{
+		font-family:					'TrajanProRegular',Tahoma, Geneva, sans-serif;
+		font-size:						18px;
+		font-weight:					bold;
+		color:							#FFF;
+		padding-bottom:					15px;
+}
+#numberfotoinpage a:hover{
+		color:							#C00;
+}
+.number_left{
+	margin: 0 -4px -29px -17px;
+}
+.number_right{
+	margin: 0 0 -29px -4px;
+}
