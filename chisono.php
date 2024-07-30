@@ -106,7 +106,7 @@ Grazie per il tempo che mi avete così generosamente prestato.<br />
 Un saluto. Angelo Soccio.<br />
 					</p>
 
-                <br />
+                <br /><br />
                 <a href="contatto.php" style="margin:0 10px 0 -28px;"><!--goto: contatto-->
                     <img name="contatto" src="common/theme/img/link_contatto_off.png" alt="pixo Agency - tutto per il web, la programmazione e la grafica aziendale"
                         onmouseover="document.contatto.src='common/theme/img/link_contatto_on.png';"

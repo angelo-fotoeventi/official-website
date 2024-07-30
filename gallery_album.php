@@ -1,4 +1,22 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+include_once 'common/dbmanager.php';
+if(empty($managerSql)){
+    $managerSql = new dbManager();
+}
+
+if( empty ($_GET['id']) ){
+    header('Location: error.php?code=1');
+    exit();
+}
+
+$categoria = $managerSql->get_categoria($_GET['id']);
+if( !$categoria ){
+    header('Location: index.php');
+    exit();
+}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
@@ -40,7 +58,8 @@
 
 		<!--[if !IE]>--> 	<link rel="stylesheet" type="text/css" href="common/theme/css/no_ie_stylesheet.css" /> 	<!--<![endif]-->
 		<!--[if IE]> 		<link rel="stylesheet" type="text/css" href="common/theme/css/ie_stylesheet.css" />		<![endif]-->
-    <!--GALLERY--><link href="gallery/theme/stylesheet_gallery.css" rel="stylesheet" type="text/css" media="screen" />
+    <!--GALLERY-->
+    	<link href="gallery/theme/stylesheet_gallery.css" rel="stylesheet" type="text/css" media="screen" />
 
 	<!--WEBFONT-->
     <style type="text/css">
@@ -77,51 +96,7 @@
 	<script type="text/javascript" src="common/script/script_slide/tinyfader.js"></script>
 	
 	<!--Dropdowndiv-->
-	<script type="text/javascript">
-		$(document).ready(function(){
-				$('#hideshow_elenco').toggle(function(){
-					$('#elenco_gallery').slideDown();
-				}, function(){
-					$('#elenco_gallery').slideUp();
-				});
-			});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-				$('#hideshow_infogallery').toggle(function(){
-					$('#info_gallery').slideDown();
-				}, function(){
-					$('#info_gallery').slideUp();
-				});
-			});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-				$('#hideshow_accessogallery').toggle(function(){
-					$('#accesso_gallery').slideDown();
-				}, function(){
-					$('#accesso_gallery').slideUp();
-				});
-			});
-	</script>
-        
-	<!--NoDrag-->
-	<script type="text/javascript">
-		window.onload = init; 
-			function init() {
-			  disableDraggingFor(document.getElementById("NoDrag"));
-			}
-			 
-			function disableDraggingFor(element) {
-			  // this works for FireFox and WebKit in future according to http://help.dottoro.com/lhqsqbtn.php
-			  element.draggable = false;
-			  // this works for older web layout engines
-			  element.onmousedown = function(event) {
-							event.preventDefault();
-							return false;
-						  };
-			}
-	</script>
+	<script type="text/javascript" src="common/script/script_Dropdown/dropdown.js"></script>
         
 	<!--NoDxMouse-->
 	<script language="JavaScript1.2">
@@ -143,13 +118,12 @@
 						$(this).find("div.thumb_protect").stop().animate({"opacity": "0"}, "slow");
 					});
 				});
-	</script>
-    <!--/SCRIPT-->				
+	</script>				
 
 
 	</head>
 
-	<body id="NoDrag">
+	<body>
         
         <!--header-->
 		<?php include("common/include/header/header.php");?>
@@ -160,85 +134,81 @@
             
             	<!--barra gallery-->
             	<div style="padding:10px 0 10px 0;">
-                	<img 	style="margin:0 0 0 15px;" id="hideshow_elenco"
-                    		name="elenco" src="gallery/theme/elenco_off.png" 
-							onmouseover="document.elenco.src='gallery/theme/elenco_on.png';"
-							onmouseout="document.elenco.src='gallery/theme/elenco_off.png';" 
-                    />
-                    <a href="contatto.php">
-                        <img 	style="position:absolute; margin-left:532px;" 
-                                name="preventivo" src="gallery/theme/preventivo_off.png" 
-                                onmouseover="document.preventivo.src='gallery/theme/preventivo_on.png';"
-                                onmouseout="document.preventivo.src='gallery/theme/preventivo_off.png';" 
-                        />
-                    </a>
-                    <img 	style="position:absolute; margin-left:749px;"  id="hideshow_infogallery"
-                    		name="info" src="gallery/theme/info_off.png" 
-							onmouseover="document.info.src='gallery/theme/info_on.png';"
-							onmouseout="document.info.src='gallery/theme/info_off.png';" 
-                    />
-                    <img 	style="position:absolute; margin-left:810px;"  id="hideshow_accessogallery"
-                    		name="accesso" src="gallery/theme/accesso_off.png" 
-							onmouseover="document.accesso.src='gallery/theme/accesso_on.png';"
-							onmouseout="document.accesso.src='gallery/theme/accesso_off.png';" 
-                    />
+                	
+                    <!--opzioni cliccabili-->
+					<!--pulsante elenco-->		<img name="elenco" id="hideshow_elenco" src="gallery/theme/elenco_off.png" onmouseover="document.elenco.src='gallery/theme/elenco_on.png';" onmouseout="document.elenco.src='gallery/theme/elenco_off.png';" style="margin:0 0 0 15px;"  />
+					<!--pulsante contatto-->	<a href="contatto.php">
+                    								<img name="preventivo" src="gallery/theme/preventivo_off.png" onmouseover="document.preventivo.src='gallery/theme/preventivo_on.png';" onmouseout="document.preventivo.src='gallery/theme/preventivo_off.png';" style="position:absolute; margin-left:532px;"/>
+                                               	</a>
+					<!--pulsante info-->		<img name="info"  id="hideshow_infogallery" src="gallery/theme/info_off.png" onmouseover="document.info.src='gallery/theme/info_on.png';" onmouseout="document.info.src='gallery/theme/info_off.png';"  style="position:absolute; margin-left:749px;" />
+					<!--pulsante accesso-->		<img name="accesso" id="hideshow_accessogallery" src="gallery/theme/accesso_off.png" onmouseover="document.accesso.src='gallery/theme/accesso_on.png';" onmouseout="document.accesso.src='gallery/theme/accesso_off.png';" style="position:absolute; margin-left:810px;"/>
                     
+                    <!--contenuto pulsante elenco (lista categorie e album)-->
                     <div id="elenco_gallery" style="display: none;">
                     	<img src="gallery/theme/toppop.png" style="position:absolute; margin-top:-20px;" />
                         <ul>
-                        	<li>
-                            	Nessuna categoria inserita
-                                	<lu>
-                                    	Nessun Album presente
-                                    </lu>
-                            </li>
+                            <?php
+                                $cats = $managerSql->lista_categorie();
+                                foreach ($cats as $cat) {
+                                    echo "<li><a href=\"gallery_album.php?id={$cat['id_categoria']}\">{$cat['nome']}</a>";
+                                    $albs = $managerSql->lista_album_by_categoria($cat['id_categoria']);
+                                    foreach ($albs as $alb) {
+                                        echo "<lu><a href=\"gallery_foto.php?id={$alb['id_album']}\">{$alb['nome']}</a></lu>";
+                                    }
+                                    echo "</li>";
+                                }
+                            ?>
                         </ul>
                     </div>
                     
+                    <!--contenuto pulsante info (informazioni sulla gallery)-->
                     <div id="info_gallery" style="display: none;">
                     	<img src="gallery/theme/toppop_info.png" style="position:absolute; margin:-20px 0 0 80px;" />
                         <p>
-                        PROVA INFO GALLERY
+                        Sei entrato in una categoria e puoi quindi accede ai suoi album.
+						Clicca sopra una copertina per entrare nell'album ed accedere a tutte le foto in esso contenuto.
+						Selezionate le foto che desideri, manda una mail per chiedere le stampe.<br /><br />
+						La copia ed il salvataggio delle foto sono punibili ai sensi di legge.
                         </p>
                     </div>
                     
+                    <!--contenuto pulsante accesso (admin e password)-->
                     <div id="accesso_gallery" style="display: none;">
                     	<img src="gallery/theme/toppop_info.png" style="position:absolute; margin:-20px 0 0 0px;" />
-                        <form>
-                        ACCESSO AREA MODIFICHE
-                        <br /><br />
-                        <font color="#FF0000">CODICE DI SICUREZZA</font>
-                        <input type="password"
-                        style="
-	                    padding:	3px 3px 3px 3px;
-                       	border-radius: 			5px; 
-                        -moz-border-radius: 	5px; 
-                        -webkit-border-radius: 	5px;
-                        "/>
-                        <br />
-                        <input type="submit" 
-                        style="
-                        background:	#CCC; 
-                        border:		0; 
-                        color:		#900;
-                        margin-top:	7px; 
-                        padding:	3px 3px 3px 3px;
-                       	border-radius: 			5px; 
-                        -moz-border-radius: 	5px; 
-                        -webkit-border-radius: 	5px;
-						" />
-                        <br /><br />
-						<a href="#"><font color="#999999">recupero password</font></a>
+                        <form method="post" action="administrator/index.php">
+                            ACCESSO AREA MODIFICHE
+                            <br /><br />
+                            <font color="#FF0000">CODICE DI SICUREZZA</font>
+                            <input type="password" name="password" id="password"
+                            style="
+                            padding:	3px 3px 3px 3px;
+                            border-radius: 			5px; 
+                            -moz-border-radius: 	5px; 
+                            -webkit-border-radius: 	5px;
+                            "/>
+                            <br />
+                            <input type="submit"  name="login" id="login"
+                            style="
+                            background:	#CCC; 
+                            border:		0; 
+                            color:		#900;
+                            margin-top:	7px; 
+                            padding:	3px 3px 3px 3px;
+                            border-radius: 			5px; 
+                            -moz-border-radius: 	5px; 
+                            -webkit-border-radius: 	5px;
+                            " />
+                        </form>
                         </form>
                     </div>
                 </div>
                
                
                 <!--INIZIO CATEGORIE-->
-                <div style="text-align:left; padding:0 0 0 14px;">
+                 <!-- <div style="text-align:left; padding:0 0 0 14px;"> -->
                 	
                     <!--box categorie-->
-                    <div class="category" onclick="top.location.href = 'gallery_foto.php';">
+                     <!-- <div class="category" onclick="top.location.href = 'gallery_foto.php';">
                     	<div class="copertina" >
 	                        <img src="gallery/theme/copia_vietata_e_punibile_in_tribunale.png"
                             style="background-image:url(gallery/theme/outofservice.png); height:146px; width:302px;" 
@@ -251,24 +221,55 @@
                         </p>
                     </div>
                     
-                </div>                         	
+                </div> -->                   
+                     
+                     
+                <div style="text-align:left; padding:0 0 0 12px;">
+					
+					<?php
+
+					$lista_album = $managerSql->lista_album_by_categoria($categoria['id_categoria']);
+                     
+                    foreach ($lista_album as $album) {
+                        $img_path = 'gallery/theme/nocopertina.png';
+                        if(file_exists("gallery/copertine_album/{$album['id_album']}.png") ){
+                            $img_path = "gallery/copertine_album/{$album['id_album']}.png";
+                        }
+                        
+					echo "
+						<div class=\"category\" onclick=\"top.location.href = 'gallery_foto.php?id={$album['id_album']}';\">
+							<div class=\"copertina\" >
+								<img src=\"gallery/theme/copia_vietata_e_punibile_in_tribunale.png\" style=\"background-image:url(common/thumb_generator_cat.php?file=../$img_path); height:138px; width:294px;\" class=\"thumb_category\" />
+								<div class=\"thumb_protect\"></div>
+							</div>
+							<img src=\"gallery/theme/line.png\" class=\"line\" />
+							<p class=\"title_album\">
+								{$album['nome']}
+							</p>
+						</div>";
+                    }
+                    ?>
+                
+				</div>
 				<!--FINE CATEGORIE-->
 
             </div>
         </div>
+        
 		<img src="common/theme/img/wrap_bot.png" />
-
+        
+		<!--box scritta scorrevole finale-->
 		<p id="scrollerp">
-        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATEGORIE VELOCI  | <span style="margin:-40px 0 !important; position:relative;">
-            <marquee direction="right" style="width:800px;">
-            	~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK ~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK ~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK
-            </marquee>
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATEGORIE VELOCI  | 
+            <span style="margin:-40px 0 !important; position:relative;">
+                <marquee direction="right" style="width:800px;">
+                    ~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK ~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK ~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK~ MATRIMONI ~ STILL LIFE  ~  SPORT ~ MODA ~ REPORTAGE ~ FOTOEDITING ~ ARTE E FOTOGRAFIA ~ CERIMONIE ~ MODELs BOOOK
+                </marquee>
             </span>
         </p>
 
 		<!--Footer-->
 		<?php include("common/include/footbar/footbar.php");?>
-		<a href="gallery_categorie.php"><font color="#FFFFFF">GO TO: MODIFICA CATEGORIA E CREA ALBUM</font></a>
 
 	</body>
 
