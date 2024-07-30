@@ -32,11 +32,10 @@
    		<!--[if lte IE 7]>
 			<script type="text/javascript">
                 /* <![CDATA[ */
-                window.top.location = '../common/error/no_browser/mod_errorbrowser.html';
+                window.top.location = 'common/errorpage/mod_errorbrowser.html';
                 /* ]]> */
 			</script>
 		<![endif]-->
-
 		<!--[if !IE]>--> 	<link rel="stylesheet" type="text/css" href="common/theme/css/no_ie_stylesheet.css" /> 	<!--<![endif]-->
 		<!--[if IE]> 		<link rel="stylesheet" type="text/css" href="common/theme/css/ie_stylesheet.css" />		<![endif]-->
 
@@ -69,20 +68,29 @@
 	<!--/WEBFONT-->
 
 	<!--SCRIPT-->				
+	<!--jQuery library-->
+	<script type="text/javascript" src="common/script/jquery.min.1.4.3.js"></script>
+    <script type="text/javascript" src="common/js/jquery-ui-1.8.6.custom.min.js"></script>
 
 	<!--slidefade-->
 	<link href="common/theme/css/css_slider/Slidecss.css" rel="stylesheet" type="text/css" media="screen" />
 	<script type="text/javascript" src="common/script/script_slide/packed.js"></script>
 	<script type="text/javascript" src="common/script/script_slide/tinyfader.js"></script>
-	<!--/SCRIPT-->				
+
+
 
 
 	</head>
 
 	<body>
-        
+    	
+       
+                
         <!--header-->
         <?php include("common/include/header/header.php");?>
+        
+        
+
 
         <!--content-->
         <div id="content">

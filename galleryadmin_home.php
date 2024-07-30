@@ -214,10 +214,6 @@ if(count($categorie)){
                         -moz-border-radius: 	5px; 
                         -webkit-border-radius: 	5px;" 
                         onclick="location.href='administrator/logout.php' "/>
-                        <br /><br />
-                       	<a href="administrator/edit_admin_pwd.php" style="color:#000;">
-                        	CAMBIA PASSWORD
-                        </a>
                         <br />
                         <!-- </form> -->
                     </div>

@@ -16,8 +16,23 @@
             <img src="common/theme/img/logo.png"  style="margin-top: -20px;"/>
             <img src="common/theme/img/wrap_top.png"  style="margin-top: -10px;"/>
             
+            
+    		<!--menu microgallery-->
+            <div id="wrap_microgallery">
+            	<div id="microgallery_menu">
+                   <img id="hideshow_micromenu" src="microgallery/open.png" style="position:absolute; margin:-8px 0 0 -50px;"  />
+                   		<div style="overflow:hidden;">
+                        <a href="microgallery_reportage.php" style="margin-top:9px;">Reportage</a>
+                        <a href="microgallery_ballo.php">Ballo</a>
+                        <a href="microgallery_cerimonie.php">Cerimonie</a>
+                        <a href="microgallery_ritratti.php">Ritratti</a>
+                        <a href="microgallery_sport.php">Sport</a>
+                		</div>
+                </div>
+            </div>
+            
             <div id="slider">
-                
+              
                 <div class="sliderbutton">
 
                     <div class="arrowposition">

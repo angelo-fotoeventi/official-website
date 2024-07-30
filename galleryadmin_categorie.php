@@ -305,20 +305,7 @@ if(array_key_exists('crop_copertina', $_POST)){
                         ESCI E TORNA UTENTE
                         <br />
                         <input type="button" value="ESCI ORA" 
-                        style="
-                        background:	#CCC; 
-                        border:		0; 
-                        color:		#900;
-                        margin-top:	7px; 
-                        padding:	3px 3px 3px 3px;
-                       	border-radius: 			5px; 
-                        -moz-border-radius: 	5px; 
-                        -webkit-border-radius: 	5px;" 
-                        onclick="location.href='administrator/logout.php' "/>
-                        <br /><br />
-                       	<a href="administrator/edit_admin_pwd.php" style="color:#000;">
-                        	CAMBIA PASSWORD
-                        </a>
+                        style=" background:	#CCC; border: 0; color: #900; margin-top: 7px; padding:	3px 3px 3px 3px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;" onclick="location.href='administrator/logout.php' "/>
                         <br />
                         <!-- </form> -->
                     </div>

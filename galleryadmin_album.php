@@ -22,7 +22,7 @@ if( !$album ){
  */
 $pagina_attuale = 0;
 $inizio = 0;
-$elementi_per_pagina = 50;
+$elementi_per_pagina = 125;
 if( array_key_exists('pagina', $_GET) ){
     $pagina_attuale = $_GET['pagina'];
     $inizio = $elementi_per_pagina * $pagina_attuale;
@@ -342,6 +342,8 @@ if(array_key_exists('crop_copertina', $_POST)){
             'folder'    : 'tmp_foto',
             'multi'       : true,
             'auto'      : false,
+			'sizeLimit'   : 500000,
+			'simUploadLimit' : 125,// funziona solo nella versione V3... limite di up selezionabili
             'onAllComplete' : function(event,data) {
                                   alert(data.filesUploaded + ' files uploaded successfully!');
                                   data = "richiesta=carica_foto&id_album=<?php echo $album['id_album'] ?>";
@@ -508,20 +510,7 @@ if(array_key_exists('crop_copertina', $_POST)){
                         ESCI E TORNA UTENTE
                         <br />
                         <input type="button" value="ESCI ORA" 
-                        style="
-                        background:	#CCC; 
-                        border:		0; 
-                        color:		#900;
-                        margin-top:	7px; 
-                        padding:	3px 3px 3px 3px;
-                       	border-radius: 			5px; 
-                        -moz-border-radius: 	5px; 
-                        -webkit-border-radius: 	5px;" 
-                        onclick="location.href='administrator/logout.php' "/>
-                        <br /><br />
-                       	<a href="administrator/edit_admin_pwd.php" style="color:#000;">
-                        	CAMBIA PASSWORD
-                        </a>
+                        style=" background:	#CCC; border: 0; color: #900; margin-top: 7px; padding:	3px 3px 3px 3px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;" onclick="location.href='administrator/logout.php' "/>
                         <br />
                         <!-- </form> -->
                     </div>
@@ -643,7 +632,9 @@ if(array_key_exists('crop_copertina', $_POST)){
                     <div class="wrap">
                         <div id="carica_foto" style="display: none" class="genericBox" style="text-align:left !important;">
                         <p style="font-family:Arial, Helvetica, sans-serif; color:#CCCCCC; font-size:16px; float:right;" onclick="javscript: $('.genericBox').fadeOut(0, null);">CHIUDI IL BOX ED ESCI</p> 
-                            <br /><br /><p style="font-family:Arial, Helvetica, sans-serif; color:#CCCCCC; font-size:16px;">UPLOAD FOTO MULTIPLE</p><br />
+                            <br /><br /><p style="font-family:Arial, Helvetica, sans-serif; color:#CCCCCC; font-size:16px;"><font color="#FF0000">/!\ATTENZIONE/!\</font><br />I limiti di timeuot del server consentono un upload di <br />
+							<font color="#FFCC00">massimo 125 foto</font> alla volta<br />
+                            NON SUPERARE TALI LIMITI ASSOLUTAMENTE!!!<br /></p><br />
                             <a href="#" onclick="javascript: $('#file_upload').uploadifyUpload(); " class="genericInput" >INVIA FILES</a><br /><br /><br />
                             <div style="border:#CCC solid 1px; padding:5px 5px 5px 5px;">
                             	<input id="file_upload" type="file" name="file_upload" class="caricafoto" /><br />
@@ -801,9 +792,8 @@ if(array_key_exists('crop_copertina', $_POST)){
                        
                         //verifico che sia necessario visualizzare il menù delle pagine
                         $pagina=0;
-						if ( $num_foto>0 && $num_foto>$elementi_per_pagina ){
+                        if ( $num_foto>0 && $num_foto>$elementi_per_pagina ){
                             echo '<select name="pagine" id="pagine" onchange="javascript: cambia_pagina();" >';
-                            
                             while($num_foto>0){ //ciclo per creare una 'option' per ogni pagina
                                 echo "<option value=\"$pagina\"";
                                 if( $pagina_attuale==$pagina){

@@ -219,3 +219,46 @@ a{
 #numberfotoinpage a:hover{
 		color:							#C00;
 }
+.number_left{
+	margin: 0 -3px -41px -17px;
+}
+.number_right{
+	margin: 0 0 -41px -4px;
+}
+
+
+#wrap_microgallery{
+	width:1000px;
+	margin:0 auto 0 auto;
+}
+
+#microgallery_menu{
+	text-align:left;
+	min-height: 155px;
+	width:0px;
+	margin:14px 0 0 15px;
+	border: 1px solid #666;
+	background:url(../../../microgallery/bkg_microgallery.png) repeat;
+	z-index: 999999;
+	position:fixed;
+	
+	-webkit-transition:all 0.2s ease-in;  
+	-moz-transition:all 0.2s ease-in;  
+	-o-transition:all 0.2s ease-in;  
+	transition:all 0.2s ease-in;
+	}
+#microgallery_menu:hover{
+	width:110px;
+	margin:15px 0 0 -96px;
+	border: 1px solid #999;
+	
+	}
+#microgallery_menu a{
+	display:block;
+	font-family:				'TrajanProBold',Tahoma, Geneva, sans-serif;
+	font-size:					14px;
+	font-weight:				bold;
+	color:						#FFF !important;
+	margin-left:				5px;
+	margin-top:					10px;
+}

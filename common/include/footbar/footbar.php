@@ -12,7 +12,7 @@
         text-align:		left;
 	">
 
-		<a href="http://www.pixosystems.com/" target="_blank" style="display:inline-block; margin-left:9px;">
+		<a href="homepage.php" style="display:inline-block; margin-left:9px;">
 			<img name="pixolink" src="common/include/footbar/img_footer/pixo_off.png" alt="pixo Agency - tutto per il web, la programmazione e la grafica aziendale"
 				onmouseover="document.pixolink.src='common/include/footbar/img_footer/pixo_on.png';"
 				onmouseout="document.pixolink.src='common/include/footbar/img_footer/pixo_off.png';" />
@@ -34,7 +34,7 @@
             Property of Angelo Soccio :: Angelfotoeventi.com :: All right Reserved ::
 		</p>
 
-		<a href="homepage.php" target="_blank" style="display:inline-block;">
+		<a href="homepage.php" style="display:inline-block;">
 			<img name="amaralink" src="common/include/footbar/img_footer/amara_off.png" alt="homepage"
 				onmouseover="document.amaralink.src='common/include/footbar/img_footer/amara_on.png';"
 				onmouseout="document.amaralink.src='common/include/footbar/img_footer/amara_off.png';" />

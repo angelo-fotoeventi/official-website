@@ -20,7 +20,7 @@ if( !$album && empty($_GET['tag']) ){
 
 $pagina_attuale = 0;
 $inizio = 0;
-$elementi_per_pagina = 250;
+$elementi_per_pagina = 125;
 if( array_key_exists('pagina', $_GET) ){
     $pagina_attuale = $_GET['pagina'];
     $inizio = $elementi_per_pagina * $pagina_attuale;
@@ -280,7 +280,7 @@ if( empty ($tag) ){
                     foreach ($lista_foto as $foto) {
                         echo "
 							<div class=\"wrap_photo\">
-								<div class=\"copertina_photo\" name=\"NoDrag\">
+								<div class=\"copertina_photo\">
 									<a href=\"gallery/foto/{$foto['id_foto']}.jpg\">
 										<img src=\"gallery/theme/copia_vietata_e_punibile_in_tribunale.png\" style=\"background:url('common/thumb_generator.php?file=../gallery/foto/{$foto['id_foto']}.jpg') no-repeat; height:142px; width:174px;\" class=\"thumb_photo\" />
 										<div class=\"thumb_protect_photo\" ></div>

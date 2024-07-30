@@ -86,11 +86,8 @@
 
         <!--content-->
         <div id="content">
-			<br /><br />
-            <hr />
-            <p style="font-family:Arial, Helvetica, sans-serif; color:#F00; font-size:26px; margin-left:20px;">
-            
-            /!\
+
+            <p>
         <?php
         //se l'accesso alla pagina avviene senza fornire un codice
         if( empty($_GET['code']) ){
@@ -159,11 +156,7 @@
 
         }
         ?>	
-            
-            
             </p>
-            <hr />
-            <br /><br />
             
         </div>
 		<img src="common/theme/img/wrap_bot.png" />

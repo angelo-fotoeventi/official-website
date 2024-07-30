@@ -78,7 +78,7 @@ function carica_foto(){
             $id_foto = $managerSql->aggiungi_foto($foto);
             //convert jpg with resize and save
             
-            save_image($path.$element, "gallery/foto/$id_foto.jpg", 750);
+            save_image($path.$element, "gallery/foto/$id_foto.jpg", 900);
             unlink($path.$element);
         }
     }
